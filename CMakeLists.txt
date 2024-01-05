@@ -62,9 +62,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
     # BP note: If you want to turn on llvm/gcc sanitize undo this and the link options below
     $<$<BOOL:${SURGE_SANITIZE}>:-fsanitize=address>
     $<$<BOOL:${SURGE_SANITIZE}>:-fsanitize=undefined>
-
-    # Do *not* use the new, breaking char8_t UTF-8 bits in C++20.
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-char8_t>
   )
 
   add_link_options(
